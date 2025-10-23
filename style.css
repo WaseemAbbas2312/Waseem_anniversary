@@ -1,0 +1,437 @@
+/* Unified & Elegant Romantic Color Palette */
+:root {
+    --primary-bg-light: #FFF0F5; /* Lavender blush - Base */
+    --secondary-bg-light: #FFE4E1; /* Misty rose - Card Background */
+    --primary-text-dark: #4A4A4A; /* Soft black */
+    --accent-color-pink: #DB7093; /* Pale violet red - Primary Button */
+    --accent-color-red: #C71585; /* Medium violet red - Highlight */
+    --shadow-color: rgba(219, 112, 147, 0.3); /* Soft pink shadow */
+    --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Base Styles: Now consistent with the light theme */
+body {
+    background: linear-gradient(135deg, var(--primary-bg-light) 0%, var(--secondary-bg-light) 50%, #FFB6C1 100%);
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding-bottom: 50px; 
+    padding-top: 50px; 
+    min-height: 100vh;
+    color: var(--primary-text-dark); /* Dark text on light background */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    opacity: 0; 
+    transition: opacity 1.5s ease-in-out;
+    position: relative;
+}
+
+/* Navigation Bar - Unchanged */
+nav {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(255, 182, 193, 0.9);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    z-index: 100;
+}
+nav h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.2em;
+    color: var(--accent-color-red);
+    margin: 0;
+}
+#musicBtn {
+    background: var(--accent-color-pink);
+    border: 2px solid var(--accent-color-red);
+    color: white;
+    padding: 8px 18px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: 600;
+    transition: 0.3s;
+    flex-shrink: 0;
+}
+#musicBtn:hover {
+    background: var(--accent-color-red);
+    transform: scale(1.05);
+}
+
+/* Background Images (for stages 1-4) */
+.background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.9) saturate(1.1);
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+    z-index: -2;
+}
+.background-image.active {
+    opacity: 1;
+}
+
+/* Main Content Card - Now unified to the light theme style */
+.card {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 50px 70px; /* Default for all stages now */
+    border-radius: 15px;
+    border-top: 6px solid var(--accent-color-red);
+    box-shadow: var(--card-shadow);
+    text-align: center;
+    max-width: 750px;
+    min-height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+    animation: subtleGlow 4s infinite alternate ease-in-out; /* Re-enable subtle glow */
+    margin-top: 70px; 
+    margin-bottom: 30px;
+    transition: all 0.8s ease-in-out; 
+    color: var(--primary-text-dark); /* Ensure text is dark on light card */
+}
+
+@keyframes subtleGlow {
+    from { box-shadow: var(--card-shadow); }
+    to { box-shadow: 0 15px 45px var(--accent-color-pink); }
+}
+
+
+/* --- STAGE 0 (COVER PAGE) STYLES - NOW COHESIVE --- */
+.cover-title {
+    font-family: 'Playfair Display', serif; /* A bit more formal, but still elegant */
+    font-size: 4.5em; /* Slightly smaller for balance */
+    color: var(--accent-color-red);
+    margin: 0 0 10px 0;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+.cover-names {
+    margin: 20px 0 30px 0;
+}
+.name-callout-light {
+    font-family: 'Parisienne', cursive; /* Elegant script for names */
+    font-size: 3.5em; 
+    color: var(--primary-text-dark);
+    display: inline-block;
+    margin: 0 10px;
+    line-height: 1.2;
+}
+.ampersand-light {
+    font-family: 'Great Vibes', cursive; /* More playful ampersand */
+    font-size: 2.8em;
+    color: var(--accent-color-pink);
+    display: inline-block;
+    transform: translateY(-5px);
+}
+.cover-date-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.4em;
+    color: var(--accent-color-pink);
+    margin-top: 30px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+}
+.cover-date-text span {
+    display: block;
+    font-size: 0.8em;
+    color: var(--primary-text-dark);
+    font-weight: 400;
+    margin-top: 5px;
+}
+.btn-start-journey { /* Specific class for cover button */
+    background-color: var(--accent-color-pink);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.1em;
+    font-weight: 600;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    margin-top: 40px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+}
+.btn-start-journey:hover {
+    background-color: var(--accent-color-red);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+/* --- END STAGE 0 STYLES --- */
+
+
+/* --- STAGE 1-4 (LIGHT PAGE) SHARED STYLES --- */
+.cursive-header {
+    font-family: 'Parisienne', cursive;
+    font-size: 3.5em; 
+    color: var(--accent-color-pink);
+    margin-bottom: -15px;
+}
+.date-callout {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2em;
+    font-weight: 700;
+    color: var(--accent-color-red);
+    margin-bottom: 25px;
+}
+h1 { /* Used for main titles on content pages */
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4.5em; 
+    font-weight: 700;
+    color: var(--primary-text-dark);
+    margin-top: 0;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+h2 { /* Used for section headers on content pages */
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.5em;
+    color: var(--accent-color-red);
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+p { /* General paragraph text */
+    font-size: 1.2em;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+.btn-group { /* For multiple buttons at bottom */
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    gap: 15px;
+    width: 100%;
+}
+.btn { /* General button style */
+    background-color: var(--accent-color-pink);
+    color: white;
+    border: none;
+    padding: 14px 30px;
+    font-size: 1.05em;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    white-space: nowrap;
+}
+.btn:hover {
+    background-color: var(--accent-color-red);
+    transform: translateY(-2px) scale(1.05);
+}
+.btn-outline {
+    background-color: transparent;
+    border: 2px solid var(--accent-color-pink);
+    color: var(--accent-color-pink);
+}
+.btn-outline:hover {
+    background-color: var(--accent-color-pink);
+    color: white;
+}
+
+/* Memory Card Styling */
+.memory-container {
+    width: 100%;
+    max-height: 45vh; 
+    overflow-y: auto; 
+    padding-right: 10px;
+    padding-bottom: 10px;
+}
+.memory-item-card {
+    background: var(--secondary-bg-light);
+    border-left: 5px solid var(--accent-color-pink);
+    border-radius: 8px;
+    padding: 20px;
+    margin: 15px 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    text-align: left;
+    transition: transform 0.2s ease;
+}
+.memory-item-card h3 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.8em;
+    color: var(--accent-color-red);
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+/* Final Page Text Styling */
+.final-vow-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6em;
+    line-height: 1.8;
+    color: var(--accent-color-red);
+    font-weight: 700;
+    margin: 30px 0;
+}
+.signature {
+    font-family: 'Parisienne', cursive;
+    font-size: 2.5em;
+    color: var(--primary-text-dark);
+    margin-top: 20px;
+}
+/* --- END STAGE 1-4 STYLES --- */
+
+
+/* Footer Fix - Unchanged */
+footer {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px 0;
+    font-size: 0.9em;
+    color: var(--primary-text-dark);
+    text-align: center;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+    z-index: 99;
+}
+
+/* --- MOBILE RESPONSIVENESS (Max Width 768px) --- */
+@media (max-width: 768px) {
+    body {
+        padding-top: 70px; 
+        padding-bottom: 60px; 
+    }
+    
+    nav {
+        padding: 8px 15px;
+    }
+    nav h2 {
+        font-size: 1.8em;
+    }
+    #musicBtn {
+        padding: 6px 12px;
+        font-size: 0.8em;
+    }
+
+    .card {
+        padding: 30px 20px; /* Reduced padding for mobile */
+        margin-top: 20px;
+        min-height: auto;
+        max-width: 95%;
+    }
+
+    /* Stage 0 Mobile */
+    .cover-title {
+        font-size: 3em;
+    }
+    .name-callout-light {
+        font-size: 2.5em;
+        display: block; 
+        margin: 5px 0;
+    }
+    .ampersand-light {
+        font-size: 2.5em;
+        transform: translateY(0);
+    }
+    .cover-date-text {
+        font-size: 1.1em;
+        margin-top: 20px;
+    }
+    .btn-start-journey {
+        padding: 12px 30px;
+        font-size: 1em;
+    }
+
+    /* Stage 1-4 Mobile */
+    .cursive-header {
+        font-size: 2.5em;
+        margin-bottom: -10px;
+    }
+    h1 {
+        font-size: 3.5em;
+    }
+    h2 {
+        font-size: 2em;
+    }
+    p {
+        font-size: 1em;
+    }
+    .final-vow-text {
+        font-size: 1.2em;
+    }
+    .signature {
+        font-size: 2em;
+    }
+    .btn-group {
+        flex-direction: column; 
+        gap: 10px;
+    }
+    .btn {
+        width: 100%;
+        padding: 12px 20px;
+        font-size: 1em;
+        white-space: normal;
+    }
+    .memory-container {
+        max-height: 55vh;
+    }
+}
+
+/* Floating Hearts - Unchanged */
+.floating-heart {
+    position: absolute;
+    font-size: 1.8em; 
+    color: #FF69B4;
+    animation: floatUpHeart 7s linear infinite;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 5;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+@keyframes floatUpHeart {
+    0% { transform: translateY(0) scale(0); opacity: 0; }
+    10% { transform: translateY(-10%) scale(1.2); opacity: 1; }
+    80% { opacity: 1; }
+    100% { transform: translateY(-100vh) scale(0.6); opacity: 0; }
+}
+
+
+
+/* Remove the old #waseem-photo styles if you added them */
+/* #waseem-photo { ... } */
+
+/* --- New Style for Your Profile Photo on the Cover Page --- */
+#waseem-cover-photo {
+    width: 150px;           /* Larger size */
+    height: 150px;
+    border-radius: 50%;     /* Still a circle */
+    object-fit: cover;      /* Ensure it fits nicely */
+    border: 5px solid var(--accent-color-red); /* More prominent border */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4); /* Stronger shadow */
+    margin: 30px auto;      /* Center it and give some space */
+    display: block;         /* Ensure it takes its own line */
+    transition: transform 0.3s ease-in-out; /* Add a subtle hover effect */
+}
+
+#waseem-cover-photo:hover {
+    transform: scale(1.08) rotate(3deg); /* Slight grow and rotate on hover */
+}
+
+/* Update mobile responsiveness for the new larger image */
+@media (max-width: 768px) {
+    #waseem-cover-photo {
+        width: 100px;
+        height: 100px;
+        margin: 20px auto;
+        border: 3px solid var(--accent-color-red);
+    }
+}
